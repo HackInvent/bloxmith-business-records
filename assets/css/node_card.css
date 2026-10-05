@@ -1,0 +1,2 @@
+[data-block-release="business_records@0.1.0"] [data-business-records-node-card] { width: 100%; min-width: 0; }
+[data-block-release="business_records@0.1.0"] [data-business-records-node-card] h3 { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }

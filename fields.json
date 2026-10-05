@@ -1,0 +1,85 @@
+[
+  {
+    "key": "namespace",
+    "help": "Local data partition owned by this node. Use a new namespace for a different seed dataset.",
+    "label": "Local namespace"
+  },
+  {
+    "key": "object_types",
+    "type": "json",
+    "rows": 2,
+    "help": "Allowed object types, such as inventory or orders. No external ERP is contacted.",
+    "label": "Allowed object types"
+  },
+  {
+    "key": "field_mapping",
+    "type": "json",
+    "rows": 5,
+    "help": "Canonical output field → source field. Flat exact keys only; source IDs are never editable.",
+    "label": "Field mapping"
+  },
+  {
+    "key": "match_fields",
+    "type": "json",
+    "rows": 2,
+    "help": "Canonical fields accepted by exact reference matching. Multiple matches remain visible.",
+    "label": "Reference matching fields"
+  },
+  {
+    "key": "allow_writes",
+    "type": "boolean",
+    "help": "Allow explicitly approved changes to this node’s local dataset only. Off by default.",
+    "label": "Enable approved local updates"
+  },
+  {
+    "key": "writable_fields",
+    "type": "json",
+    "rows": 2,
+    "help": "Canonical fields that may be proposed for updates. Keep empty for read-only operation.",
+    "label": "Editable fields"
+  },
+  {
+    "key": "seed_data",
+    "type": "json",
+    "rows": 8,
+    "advanced": true,
+    "help": "Initial array of {object_type, source_id, data}. Imported once on first request; never overwrites edited records. No secrets.",
+    "label": "Initial local dataset"
+  },
+  {
+    "key": "proposal_ttl_sec",
+    "type": "integer",
+    "min": 30,
+    "max": 86400,
+    "advanced": true,
+    "help": "Validity of an exact update proposal in seconds. Expiry never triggers a change.",
+    "label": "Proposal validity (seconds)"
+  },
+  {
+    "key": "max_records",
+    "type": "integer",
+    "min": 1,
+    "max": 10000,
+    "advanced": true,
+    "help": "Maximum seed records per partition. There is no implicit ERP synchronization.",
+    "label": "Record limit"
+  },
+  {
+    "key": "max_proposals",
+    "type": "integer",
+    "min": 1,
+    "max": 20000,
+    "advanced": true,
+    "help": "Retained proposals per partition. Replay protection is never silently pruned; full storage refuses new proposals.",
+    "label": "Retained proposal limit"
+  },
+  {
+    "key": "max_bytes",
+    "type": "integer",
+    "min": 1024,
+    "max": 262144,
+    "advanced": true,
+    "help": "Maximum UTF-8 bytes per request or normalized record. Total seed size is separately limited to 4 MiB.",
+    "label": "Request / record limit (bytes)"
+  }
+]

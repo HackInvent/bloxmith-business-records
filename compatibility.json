@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "kind": "business_records",
+  "block_version": "0.1.0",
+  "maintained_by": "HackInvent",
+  "source": {
+    "algorithm": "block-source-v1",
+    "sha256": "47445b07324ab05e73190607b776824b0c2d054562eb9841f661dc9eb6f7a9c0"
+  },
+  "bloxsmith_compatibility": [
+    "1.0.9"
+  ],
+  "tested_with_bloxsmith": "1.0.9",
+  "validations": [
+    {
+      "bloxsmith_version": "1.0.9",
+      "framework_commit": "f1a87f6369d2acfb8be41d23ea849384cd461c86",
+      "framework_source_sha256": "66e36a13fd9a23a0a0576ec81552d6e479671db6db9b8692cc7486c5aac4f3b8",
+      "tested_at": "2026-10-04T17:16:30.050976+00:00",
+      "status": "passed",
+      "installation_mode": "bundled",
+      "suite_paths": [
+        "tests/F5.01_business_records.py",
+        "tests/F5.02_business_records_runtime.py",
+        "tests/F8.01_business_records_ui.py"
+      ],
+      "suite_count": 3,
+      "report_sha256": "375696ff67dc6281c6ca818ef5ba45133fc45b54ce8baa9fdb4652ffbf8d4699"
+    }
+  ]
+}

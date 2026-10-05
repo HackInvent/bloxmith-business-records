@@ -1,0 +1,164 @@
+{
+  "kind": "business_records",
+  "version": "0.1.0",
+  "title": "Business Records",
+  "description": "Look up local reference data and apply exact, revision-checked updates only after explicit approval.",
+  "repository_url": "https://github.com/HackInvent/bloxmith-business-records",
+  "bloxsmith_compatibility": ["1.0.9"],
+  "tested_with_bloxsmith": "1.0.9",
+  "prerequisites": [],
+  "locales": {
+    "en": "locales/en.json",
+    "fr": "locales/fr.json"
+  },
+  "ports": {
+    "inputs": [
+      {
+        "id": 1,
+        "name": "request",
+        "title": "request",
+        "accepts": [
+          "application/json",
+          "message/*"
+        ],
+        "multiplicity": "one",
+        "required": false,
+        "execution_requirement": "not_required_for_execution"
+      },
+      {
+        "id": 2,
+        "name": "decision",
+        "title": "decision",
+        "accepts": [
+          "application/json",
+          "message/*"
+        ],
+        "multiplicity": "one",
+        "required": false,
+        "execution_requirement": "not_required_for_execution"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 1,
+        "name": "records",
+        "title": "records",
+        "emits": [
+          "application/json",
+          "message/*"
+        ],
+        "multiplicity": "many"
+      },
+      {
+        "id": 2,
+        "name": "proposal",
+        "title": "proposal",
+        "emits": [
+          "application/json",
+          "message/*"
+        ],
+        "multiplicity": "many"
+      },
+      {
+        "id": 3,
+        "name": "receipt",
+        "title": "receipt",
+        "emits": [
+          "application/json",
+          "message/*"
+        ],
+        "multiplicity": "many"
+      },
+      {
+        "id": 4,
+        "name": "status",
+        "title": "status",
+        "emits": [
+          "application/json",
+          "message/*"
+        ],
+        "multiplicity": "many"
+      }
+    ]
+  },
+  "config": {
+    "namespace": "demo",
+    "object_types": [
+      "inventory",
+      "orders"
+    ],
+    "field_mapping": {
+      "reference": "reference",
+      "label": "label",
+      "quantity": "quantity",
+      "status": "status"
+    },
+    "match_fields": [
+      "reference"
+    ],
+    "writable_fields": [],
+    "allow_writes": false,
+    "seed_data": [],
+    "proposal_ttl_sec": 600,
+    "max_records": 1000,
+    "max_proposals": 10000,
+    "max_bytes": 131072
+  },
+  "port_capabilities": {
+    "can_add_inputs": false,
+    "can_add_outputs": false
+  },
+  "runtime": {
+    "initial_state": "waiting",
+    "runtime_executable": true,
+    "active_worker": true,
+    "centralized_executor": "generic",
+    "centralized_dependency_mode": "any_event",
+    "file_browser": false,
+    "active_execution_policy": "on_each_event"
+  },
+  "ui_assets": {
+    "modal": [
+      {
+        "kind": "css",
+        "path": "assets/css/properties.css"
+      },
+      {
+        "kind": "js",
+        "path": "assets/js/properties.js"
+      },
+      {
+        "kind": "js",
+        "path": "assets/js/settings.js"
+      },
+      {
+        "kind": "js",
+        "path": "assets/js/block_modal.js"
+      }
+    ],
+    "inspector_panel": [
+      {
+        "kind": "css",
+        "path": "assets/css/properties.css"
+      },
+      {
+        "kind": "js",
+        "path": "assets/js/properties.js"
+      },
+      {
+        "kind": "js",
+        "path": "assets/js/settings.js"
+      },
+      {
+        "kind": "js",
+        "path": "assets/js/inspector_panel.js"
+      }
+    ],
+    "node_card": [
+      {
+        "kind": "css",
+        "path": "assets/css/node_card.css"
+      }
+    ]
+  }
+}
